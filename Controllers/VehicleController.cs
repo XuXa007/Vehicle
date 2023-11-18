@@ -13,11 +13,34 @@ namespace WebApplication3.Controllers
         {
             _dbContext = dbContext;
         }
+        
+        
 
         public IActionResult VehicleList()
         {
             var vehicles = _dbContext.Vehicles.ToList();
             return View(vehicles);
+        }
+        
+        
+        
+        public IActionResult Create()
+        {
+            var vehicle = new Vehicle();
+            return View(vehicle);
+        }
+        
+        [HttpPost]
+        public IActionResult Create(Vehicle cVehicle)
+        {
+            if (ModelState.IsValid)
+            {
+                _dbContext.Vehicles.Add(cVehicle);
+                _dbContext.SaveChanges();
+                return RedirectToAction("VehicleList");
+            }
+
+            return View(cVehicle);
         }
         
         public  IActionResult Edit(int id)
