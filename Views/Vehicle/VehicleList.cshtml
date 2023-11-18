@@ -2,29 +2,33 @@
 
 <table>
     <thead>
-    <tr>
-        <th>Make</th>
-        <th>Model</th>
-        <th>Registration Number</th>
-        <th>Maintenance Tasks</th>
-    </tr>
+        <tr>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Registration Number</th>
+            <th>Maintenance Tasks</th>
+            <th>Action</th> <!-- Добавленный столбец для действий -->
+        </tr>
     </thead>
     <tbody>
-    @foreach (var vehicle in Model)
-    {
-        <tr>
-            <td>@vehicle.Make</td>
-            <td>@vehicle.Model</td>
-            <td>@vehicle.RegistrationNumber</td>
-            <td>
-                <ul>
+        @foreach (var vehicle in Model)
+        {
+            <tr>
+                <td>@vehicle.Make</td>
+                <td>@vehicle.Model</td>
+                <td>@vehicle.RegistrationNumber</td>
+                <td>
                     @foreach (var task in vehicle.MaintenanceTasks)
                     {
-                        <li>@task.Description</li>
+                        <span>@task.Description</span><br/>
+                        <!-- Другие данные по вашему выбору -->
                     }
-                </ul>
-            </td>
-        </tr>
-    }
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Vehicle", new { id = vehicle.Id })">Edit</a>
+                    <!-- Добавленная ссылка на страницу редактирования -->
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

@@ -12,6 +12,5 @@ public class Vehicle
     public string Model { get; set; }
     public string RegistrationNumber { get; set; }
     
-    
-    public ICollection<MaintenanceTask> MaintenanceTasks { get; set; }
+    public List<MaintenanceTask> MaintenanceTasks { get; set; }
 }
