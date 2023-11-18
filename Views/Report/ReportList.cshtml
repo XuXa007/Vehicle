@@ -1,0 +1,19 @@
+@model List<WebApplication3.Models.Report>
+
+<table>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>User</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var report in Model)
+    {
+        <tr>
+            <td>@report.Title</td>
+            <td>@report.User.Username</td>
+        </tr>
+    }
+    </tbody>
+</table>

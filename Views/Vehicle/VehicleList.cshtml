@@ -1,0 +1,30 @@
+@model List<WebApplication3.Models.Vehicle>
+
+<table>
+    <thead>
+    <tr>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Registration Number</th>
+        <th>Maintenance Tasks</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var vehicle in Model)
+    {
+        <tr>
+            <td>@vehicle.Make</td>
+            <td>@vehicle.Model</td>
+            <td>@vehicle.RegistrationNumber</td>
+            <td>
+                <ul>
+                    @foreach (var task in vehicle.MaintenanceTasks)
+                    {
+                        <li>@task.Description</li>
+                    }
+                </ul>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

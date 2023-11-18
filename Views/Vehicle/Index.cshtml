@@ -1,0 +1,10 @@
+@model List<Vehicle>
+
+<h1>Vehicle List</h1>
+
+<ul>
+    @foreach (var vehicle in Model)
+    {
+        <li>@vehicle.Model - @vehicle.RegistrationNumber</li>
+    }
+</ul>
