@@ -14,3 +14,8 @@ public class Vehicle
     
     public List<MaintenanceTask> MaintenanceTasks { get; set; }
 }
+// dotnet ef migrations add InitialCreate
+// dotnet ef database update
+// dotnet ef migrations add YourMigrationName
+// dotnet ef database update
+// SecondCreateBD

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,7 +10,12 @@ namespace WebApplication3
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            // Настройте ваши службы здесь
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = "/Account/Login";
+                    options.AccessDeniedPath = "/Account/AccessDenied";
+                });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -30,6 +36,8 @@ namespace WebApplication3
             app.UseRouting();
 
             app.UseAuthorization();
+            
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
@@ -37,6 +45,8 @@ namespace WebApplication3
                     name: "default",
                     pattern: "{controller=Home}/{action=MainPage}/{id?}");
             });
+            
+            
         }
     }
 }

@@ -38,3 +38,4 @@
 /Users/xl/RiderProjects/WebApplication3/WebApplication3/bin/Debug/net7.0/Microsoft.Extensions.DependencyModel.dll
 /Users/xl/RiderProjects/WebApplication3/WebApplication3/bin/Debug/net7.0/Mono.TextTemplating.dll
 /Users/xl/RiderProjects/WebApplication3/WebApplication3/bin/Debug/net7.0/System.CodeDom.dll
+/Users/xl/RiderProjects/WebApplication3/WebApplication3/bin/Debug/net7.0/BCrypt.Net.dll

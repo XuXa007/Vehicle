@@ -1,0 +1,26 @@
+@model WebApplication3.Models.User
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>Login</h2>
+
+<!-- Форма входа -->
+<form action="LoginPost" method="post">
+    <div>
+        <label for="Username">Username</label>
+        <input type="text" name="Username" />
+        <span asp-validation-for="Username"></span>
+    </div>
+    
+    <div>
+        <label for="Password">Password</label>
+        <input type="password" name="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+
+    <button type="submit">Login</button>
+</form>
+
+<a href="@Url.Action("Register", "Account")">Register</a>
