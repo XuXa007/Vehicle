@@ -24,6 +24,12 @@ namespace WebApplication3.Controllers
         {
             return View();
         }
+        
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
 
         [HttpPost]
         public async Task<IActionResult> LoginPost(User model)
@@ -46,10 +52,8 @@ namespace WebApplication3.Controllers
 
                     return RedirectToAction("MainPage", "Home");
                 }
-
-                ModelState.AddModelError("", "Invalid username or password");
             }
-
+            ModelState.AddModelError("", "Invalid username or password");
             return View("Login", model);
         }
 
@@ -79,6 +83,5 @@ namespace WebApplication3.Controllers
             // Если модель не прошла валидацию, верните пользователя на страницу регистрации
             return View("Register", model);
         }
-
     }
 }

@@ -1,23 +1,26 @@
 @model WebApplication3.Models.User
 
+@{
+    ViewData["Title"] = "Register";
+}
+
 <h2>Register</h2>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Register" method="post">
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Username"></label>
-                <input asp-for="Username" class="form-control" />
-                <span asp-validation-for="Username" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password"></label>
-                <input asp-for="Password" type="password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <!-- Добавьте другие поля для регистрации -->
-            <button type="submit" class="btn btn-primary">Register</button>
-        </form>
+
+<!-- Форма регистрации -->
+<form asp-action="Register" method="post">
+    <div>
+        <label asp-for="Username"></label>
+        <input asp-for="Username" />
+        <span asp-validation-for="Username"></span>
     </div>
-</div>
+    
+    <div>
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+
+    <button type="submit">Register</button>
+</form>
+
+<a asp-controller="Account" asp-action="Login">Login</a>
