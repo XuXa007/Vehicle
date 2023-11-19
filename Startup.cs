@@ -7,7 +7,7 @@ using WebApplication3.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = "Host=localhost;Port=5432;Database=DBATransport;Username=postgres;Password=1234;";
+var connectionString = "Host=localhost;Port=5432;Database=DB_Transport;Username=postgres;Password=1234;";
 builder.Services.AddDbContext<DBContext>(options =>
     options.UseNpgsql(connectionString));
 
@@ -31,14 +31,15 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
+//
+// app.MapControllerRoute(
+//     name: "default",
+//     pattern: "{controller=Home}/{action=MainPage}/{id?}");
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Account}/{action=Login}/{id?}");
-
-app.MapControllerRoute(
-    name: "register",
+    name: "login",
     pattern: "{controller=Account}/{action=Register}");
 
 

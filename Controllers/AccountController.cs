@@ -13,10 +13,13 @@ namespace WebApplication3.Controllers
     public class AccountController : Controller
     {
         private readonly DBContext _dbContext;
-
-        public AccountController(DBContext dbContext)
+        private readonly ILogger<AccountController> _logger;
+        
+        public AccountController(DBContext dbContext, ILogger<AccountController> logger)
+        
         {
             _dbContext = dbContext;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -34,6 +37,8 @@ namespace WebApplication3.Controllers
         [HttpPost]
         public async Task<IActionResult> LoginPost(User model)
         {
+            _logger.LogInformation($"Attempting login for user: {model.Username}");
+            
             if (ModelState.IsValid)
             {
                 var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Username == model.Username);
@@ -60,6 +65,7 @@ namespace WebApplication3.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(User model)
         {
+            _logger.LogInformation($"Attempting registration for user: {model.Username}");
             if (ModelState.IsValid)
             {
                 // Проверьте, не существует ли пользователь с таким же именем

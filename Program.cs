@@ -10,7 +10,12 @@ namespace WebApplication3
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            services.AddAuthentication(options =>
+                {
+                    options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                    options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                })
                 .AddCookie(options =>
                 {
                     options.LoginPath = "/Account/Login";
@@ -38,15 +43,17 @@ namespace WebApplication3
             app.UseAuthorization();
             
             app.UseAuthentication();
-
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=MainPage}/{id?}");
+
+                endpoints.MapControllerRoute(
+                    name: "login",
+                    pattern: "{controller=Account}/{action=Login}");
             });
-            
-            
         }
     }
 }
