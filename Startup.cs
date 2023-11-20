@@ -42,5 +42,8 @@ app.MapControllerRoute(
     name: "login",
     pattern: "{controller=Account}/{action=Register}");
 
+app.MapControllerRoute(
+    name: "home",
+    pattern: "{controller=Home}/{action=MainPage}");
 
 app.Run();

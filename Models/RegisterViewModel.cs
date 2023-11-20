@@ -1,25 +1,19 @@
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.AspNetCore.Identity;
-using WebApplication3.Enum;
 
 namespace WebApplication3.Models;
 
-[Table("user")]
 
-public class User 
+// [Table("registerViewModel")]
+
+public class RegisterViewModel
 {
-    public int Id { get; set; }
     [Required(ErrorMessage = "Username is required.")]
-    [MinLength(3, ErrorMessage = "Username must be at least 3 characters.")] 
+    [MinLength(3, ErrorMessage = "Username must be at least 3 characters.")]
     public string Username { get; set; }
-    
+
     [Required(ErrorMessage = "Password is required.")]
     [MinLength(3, ErrorMessage = "Password must be at least 3 characters.")]
+    [DataType(DataType.Password)]
     public string Password { get; set; }
-    
-    public UserRole Role { get; set; }
-    
-    public ICollection<Report> Reports { get; set; }
 }

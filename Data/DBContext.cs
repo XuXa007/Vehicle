@@ -20,7 +20,6 @@ public class DBContext : DbContext
         modelBuilder.Entity<Vehicle>().ToTable("vehicle");
         modelBuilder.Entity<Report>().ToTable("report");
         modelBuilder.Entity<User>().ToTable("user");
-
     }
 
 }

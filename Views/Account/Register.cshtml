@@ -1,26 +1,19 @@
-@model WebApplication3.Models.User
-
-@{
-    ViewData["Title"] = "Register";
-}
+@model WebApplication3.Models.RegisterViewModel
 
 <h2>Register</h2>
 
-<!-- Форма регистрации -->
 <form asp-action="Register" method="post">
     <div>
         <label asp-for="Username"></label>
         <input asp-for="Username" />
         <span asp-validation-for="Username"></span>
     </div>
-    
     <div>
         <label asp-for="Password"></label>
-        <input asp-for="Password" type="password" />
+        <input asp-for="Password" />
         <span asp-validation-for="Password"></span>
     </div>
-
     <button type="submit">Register</button>
 </form>
 
-<a asp-controller="Account" asp-action="Login">Login</a>
+<p>Already have an account? <a href="@Url.Action("Login", "Account")">Login here</a>.</p>

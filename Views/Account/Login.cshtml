@@ -1,4 +1,4 @@
-@model WebApplication3.Models.User
+@model WebApplication3.Models.LoginViewModel
 
 @{
     ViewData["Title"] = "Login";
@@ -6,21 +6,18 @@
 
 <h2>Login</h2>
 
-<!-- Форма входа -->
-<form asp-action="LoginPost" method="post">
+<form asp-action="Login" method="post">
     <div>
         <label asp-for="Username"></label>
         <input asp-for="Username" />
         <span asp-validation-for="Username"></span>
     </div>
-    
     <div>
         <label asp-for="Password"></label>
-        <input asp-for="Password" type="password" />
+        <input asp-for="Password" />
         <span asp-validation-for="Password"></span>
     </div>
-
     <button type="submit">Login</button>
 </form>
 
-<a asp-controller="Account" asp-action="Register">Register</a>
+<p>Don't have an account? <a asp-action="Register">Register here</a>.</p>

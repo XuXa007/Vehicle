@@ -1,8 +1,11 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebApplication3.Data;
+using WebApplication3.Models;
 
 namespace WebApplication3
 {
@@ -21,6 +24,9 @@ namespace WebApplication3
                     options.LoginPath = "/Account/Login";
                     options.AccessDeniedPath = "/Account/AccessDenied";
                 });
+            
+            services.AddIdentity<User, IdentityRole>()
+                .AddDefaultTokenProviders();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -48,12 +54,15 @@ namespace WebApplication3
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=MainPage}/{id?}");
-
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute(
-                    name: "login",
-                    pattern: "{controller=Account}/{action=Login}");
+                    name: "account",
+                    pattern: "{controller=Account}/{action=Login}/{id?}");
+                endpoints.MapControllerRoute(
+                    name: "home",
+                    pattern: "{controller=Home}/{action=MainPage}/{id?}");
             });
+
         }
     }
 }

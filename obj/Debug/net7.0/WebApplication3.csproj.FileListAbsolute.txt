@@ -39,3 +39,9 @@
 /Users/xl/RiderProjects/WebApplication3/WebApplication3/bin/Debug/net7.0/Mono.TextTemplating.dll
 /Users/xl/RiderProjects/WebApplication3/WebApplication3/bin/Debug/net7.0/System.CodeDom.dll
 /Users/xl/RiderProjects/WebApplication3/WebApplication3/bin/Debug/net7.0/BCrypt.Net.dll
+/Users/xl/RiderProjects/WebApplication3/WebApplication3/bin/Debug/net7.0/Microsoft.AspNetCore.Cryptography.Internal.dll
+/Users/xl/RiderProjects/WebApplication3/WebApplication3/bin/Debug/net7.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+/Users/xl/RiderProjects/WebApplication3/WebApplication3/bin/Debug/net7.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/xl/RiderProjects/WebApplication3/WebApplication3/bin/Debug/net7.0/Microsoft.Extensions.Identity.Core.dll
+/Users/xl/RiderProjects/WebApplication3/WebApplication3/bin/Debug/net7.0/Microsoft.Extensions.Identity.Stores.dll
+/Users/xl/RiderProjects/WebApplication3/WebApplication3/bin/Debug/net7.0/Microsoft.Extensions.Options.dll
