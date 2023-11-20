@@ -61,6 +61,13 @@ namespace WebApplication3.Controllers
         [HttpPost]
         public IActionResult Register(RegisterViewModel model)
         {
+            
+            if (_dbContext.Users.Any(u => u.Username == model.Username))
+            {
+                ModelState.AddModelError(nameof(RegisterViewModel.Username), "This username is already taken.");
+                return View(model);
+            }
+            
             if (ModelState.IsValid)
             {
                 var newUser = new User
@@ -71,8 +78,8 @@ namespace WebApplication3.Controllers
 
                 _dbContext.Users.Add(newUser);
                 _dbContext.SaveChanges();
-
-                return RedirectToAction("MainPage", "Home");
+                
+                return RedirectToAction("Login", "Account");
             }
 
             ModelState.AddModelError(string.Empty, "Invalid registration attempt.");
