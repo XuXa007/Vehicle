@@ -1,9 +1,8 @@
 @model WebApplication3.Models.Vehicle
 
-<h2>Edit Vehicle</h2>
+<h2>Create Vehicle</h2>
 
-<form asp-action="Edit">
-    <input asp-for="Id" type="hidden" />
+<form asp-action="Create">
     <div class="form-group">
         <label asp-for="Make"></label>
         <input asp-for="Make" class="form-control" />
@@ -16,7 +15,5 @@
         <label asp-for="RegistrationNumber"></label>
         <input asp-for="RegistrationNumber" class="form-control" />
     </div>
-    <button type="submit" class="btn btn-primary">Save Changes</button>
+    <button type="submit" class="btn btn-primary">Save</button>
 </form>
-
-<a asp-action="VehicleList">Back to List</a>

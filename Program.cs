@@ -6,13 +6,32 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebApplication3.Data;
 using WebApplication3.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using WebApplication3.Data;
+using WebApplication3.Models;
+using WebApplication3.Services;
 
 namespace WebApplication3
 {
     public class Startup
     {
+        public IConfiguration Configuration;
+
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddAuthentication(options =>
                 {
                     options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -24,9 +43,20 @@ namespace WebApplication3
                     options.LoginPath = "/Account/Login";
                     options.AccessDeniedPath = "/Account/AccessDenied";
                 });
-            
+
+
+
             services.AddIdentity<User, IdentityRole>()
                 .AddDefaultTokenProviders();
+
+            services.AddDbContext<ApplicationDbContext>(options =>
+            {
+                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
+            });
+
+            services.AddControllersWithViews();
+            services.AddScoped<VehicleService>();
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -46,10 +76,9 @@ namespace WebApplication3
 
             app.UseRouting();
 
-            app.UseAuthorization();
-            
             app.UseAuthentication();
-            
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -62,7 +91,6 @@ namespace WebApplication3
                     name: "home",
                     pattern: "{controller=Home}/{action=MainPage}/{id?}");
             });
-
         }
     }
 }

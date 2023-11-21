@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
 using System.Linq;
 using WebApplication3.Data;
+using WebApplication3.Enum;
 
 namespace WebApplication3.Controllers
 {
@@ -28,6 +29,19 @@ namespace WebApplication3.Controllers
             return View();
         }
 
+        
+        [Authorize(Roles = "Admin")] 
+        public IActionResult AdminPage()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "User")] 
+        public IActionResult UserPage()
+        {
+            return View();
+        }
+        
         [HttpPost]
         public IActionResult Login(LoginViewModel model)
         {
@@ -36,14 +50,27 @@ namespace WebApplication3.Controllers
                 var user = _dbContext.Users.FirstOrDefault(u => u.Username == model.Username && u.Password == model.Password);
 
                 if (user != null)
-                {
-                    var claims = new[] { new Claim(ClaimTypes.Name, user.Username) };
+                {            
+                    var claims = new List<Claim>
+                    {
+                        new Claim(ClaimTypes.Name, user.Username),
+                        new Claim(ClaimTypes.Role, user.Role.ToString()) // Преобразуем Enum в строку
+                    };
+
                     var identity = new ClaimsIdentity(claims, "login");
                     var principal = new ClaimsPrincipal(identity);
 
+                    // Установка аутентификационных куки
                     HttpContext.SignInAsync(principal);
 
-                    return RedirectToAction("MainPage", "Home");
+                    if (user.Role == UserRole.Admin)
+                    {
+                        return RedirectToAction("AdminPage", "Account");
+                    }
+                    else
+                    {
+                        return RedirectToAction("UserPage", "Account");
+                    }
                 }
 
                 ModelState.AddModelError(string.Empty, "Invalid login attempt.");

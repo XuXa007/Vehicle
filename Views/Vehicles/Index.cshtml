@@ -1,0 +1,23 @@
+@model List<WebApplication3.Models.Vehicle>
+
+<h2>Vehicles</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Registration Number</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var vehicle in Model)
+    {
+        <tr>
+            <td>@vehicle.Make</td>
+            <td>@vehicle.Model</td>
+            <td>@vehicle.RegistrationNumber</td>
+        </tr>
+    }
+    </tbody>
+</table>
