@@ -23,24 +23,13 @@ namespace WebApplication3.Controllers
             _dbContext = dbContext;
         }
 
-        [HttpGet]
+        [AllowAnonymous]
         public IActionResult Login()
         {
             return View();
         }
 
         
-        [Authorize(Roles = "Admin")] 
-        public IActionResult AdminPage()
-        {
-            return View();
-        }
-
-        [Authorize(Roles = "User")] 
-        public IActionResult UserPage()
-        {
-            return View();
-        }
         
         [HttpPost]
         public IActionResult Login(LoginViewModel model)
@@ -54,7 +43,7 @@ namespace WebApplication3.Controllers
                     var claims = new List<Claim>
                     {
                         new Claim(ClaimTypes.Name, user.Username),
-                        new Claim(ClaimTypes.Role, user.Role.ToString()) // Преобразуем Enum в строку
+                        new Claim(ClaimTypes.Role, user.Role.ToString())
                     };
 
                     var identity = new ClaimsIdentity(claims, "login");
@@ -65,12 +54,17 @@ namespace WebApplication3.Controllers
 
                     if (user.Role == UserRole.Admin)
                     {
-                        return RedirectToAction("AdminPage", "Account");
+                        return RedirectToAction("AdminPage", "Admin");
+                    }
+                    else if (user.Role == UserRole.User) 
+                    {
+                        return RedirectToAction("UserPage", "User");
                     }
                     else
                     {
-                        return RedirectToAction("UserPage", "Account");
+                        ModelState.AddModelError(string.Empty, "Invalid login attempt.");
                     }
+
                 }
 
                 ModelState.AddModelError(string.Empty, "Invalid login attempt.");
@@ -111,6 +105,13 @@ namespace WebApplication3.Controllers
 
             ModelState.AddModelError(string.Empty, "Invalid registration attempt.");
             return View(model);
+        }
+        
+        [Authorize] // Атрибут Authorize требуется для доступа к методу выхода
+        public IActionResult Logout()
+        {
+            HttpContext.SignOutAsync(); // Выход пользователя
+            return RedirectToAction("Login", "Account"); // Перенаправление на страницу входа
         }
     }
 }

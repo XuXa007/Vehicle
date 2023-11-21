@@ -1,0 +1,37 @@
+<!-- Views/Maintenance/RequestsList.cshtml -->
+
+@model List<MaintenanceRequest>
+
+@{
+    ViewData["Title"] = "Maintenance Requests List";
+    // Layout = "~/Views/Shared/_Layout.cshtml"; // Замените на фактический путь к вашему макету
+}
+
+<h2>Maintenance Requests List</h2>
+
+@if (Model.Count > 0)
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Vehicle Name</th>
+            <th>Description</th>
+            <!-- Добавьте другие колонки, если необходимо -->
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var request in Model)
+        {
+            <tr>
+                <td>@request.VehicleName</td>
+                <td>@request.Description</td>
+                <!-- Добавьте другие ячейки, если необходимо -->
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No maintenance requests found.</p>
+}

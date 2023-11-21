@@ -1,0 +1,25 @@
+@model List<MaintenanceRequest>
+
+<h2>Maintenance Requests</h2>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Vehicle Name</th>
+        <th>Description</th>
+        <th>Request Date</th>
+        <th>Is Completed</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var request in Model)
+    {
+        <tr>
+            <td>@request.VehicleName</td>
+            <td>@request.Description</td>
+            <td>@request.RequestDate</td>
+            <td>@request.IsCompleted</td>
+        </tr>
+    }
+    </tbody>
+</table>

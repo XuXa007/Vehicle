@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Ваши общие метатеги, стили, скрипты и т. д. -->
+</head>
+<body>
+<header>
+    <!-- Здесь можете разместить ваш заголовок, логотип и другие элементы шапки сайта -->
+</header>
+    
+<nav>
+    <ul>
+        <li><a asp-controller="User" asp-action="UserPage">User Page</a></li>
+        <li><a asp-controller="Maintenance" asp-action="Create">Create Maintenance Request</a></li>
+        <li><a asp-controller="Maintenance" asp-action="RequestsList">View Maintenance Requests</a></li>
+        <!-- Другие элементы меню -->
+    </ul>
+</nav>
+
+<main>
+    <!-- Здесь будет размещаться основное содержимое каждой страницы -->
+    @RenderBody()
+</main>
+
+<footer>
+    <!-- Здесь можете разместить информацию в подвале сайта -->
+</footer>
+
+<!-- Ваши общие скрипты, стили и т. д. -->
+
+</body>
+</html>

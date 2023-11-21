@@ -16,36 +16,52 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/xl/RiderProjects/WebApplication3/WebApplication3
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/xl/RiderProjects/WebApplication3/WebApplication3/Views/Account/AdminPage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9BZG1pblBhZ2UuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/xl/RiderProjects/WebApplication3/WebApplication3/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/xl/RiderProjects/WebApplication3/WebApplication3/Views/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/xl/RiderProjects/WebApplication3/WebApplication3/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9SZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/xl/RiderProjects/WebApplication3/WebApplication3/Views/Account/UserPage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Vc2VyUGFnZS5jc2h0bWw=
+[/Users/xl/RiderProjects/WebApplication3/WebApplication3/Views/Admin/AdminPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vQWRtaW5QYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/xl/RiderProjects/WebApplication3/WebApplication3/Views/Admin/RequestsList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vUmVxdWVzdHNMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/xl/RiderProjects/WebApplication3/WebApplication3/Views/Home/MainPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9NYWluUGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/xl/RiderProjects/WebApplication3/WebApplication3/Views/MaintenanceTask/MaintenanceTaskList.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWFpbnRlbmFuY2VUYXNrL01haW50ZW5hbmNlVGFza0xpc3QuY3NodG1s
+[/Users/xl/RiderProjects/WebApplication3/WebApplication3/Views/Maintenance/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWFpbnRlbmFuY2UvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/xl/RiderProjects/WebApplication3/WebApplication3/Views/Maintenance/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWFpbnRlbmFuY2UvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/xl/RiderProjects/WebApplication3/WebApplication3/Views/Report/ReportList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVwb3J0L1JlcG9ydExpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/xl/RiderProjects/WebApplication3/WebApplication3/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/xl/RiderProjects/WebApplication3/WebApplication3/Views/Transport/Vehicles.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVHJhbnNwb3J0L1ZlaGljbGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/xl/RiderProjects/WebApplication3/WebApplication3/Views/User/UserPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9Vc2VyUGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/xl/RiderProjects/WebApplication3/WebApplication3/Views/Vehicles/Create.cshtml]

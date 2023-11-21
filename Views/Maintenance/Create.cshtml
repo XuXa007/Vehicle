@@ -1,0 +1,15 @@
+@model MaintenanceRequest
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="VehicleName">Vehicle Name:</label>
+        <input asp-for="VehicleName" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description">Description:</label>
+        <textarea asp-for="Description" class="form-control" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Request</button>
+</form>

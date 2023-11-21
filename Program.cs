@@ -34,14 +34,15 @@ namespace WebApplication3
 
             services.AddAuthentication(options =>
                 {
-                    options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                     options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                    options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                     options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 })
                 .AddCookie(options =>
                 {
-                    options.LoginPath = "/Account/Login";
-                    options.AccessDeniedPath = "/Account/AccessDenied";
+                    options.LoginPath = "/Account/Login"; 
+                    options.LogoutPath = "/Account/Logout"; 
                 });
 
 
@@ -56,7 +57,7 @@ namespace WebApplication3
 
             services.AddControllersWithViews();
             services.AddScoped<VehicleService>();
-
+            services.AddScoped<IMaintenanceService, MaintenanceService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
